@@ -1,4 +1,4 @@
-= Simple quickstart for Wicket 6 + Heroku
+# Simple quickstart for Wicket 6 + Heroku
 
 This quickstart deploys fine on Heroku with OpenJDK 7 (Cedar stack)
 You have to do the following to enable JDK 7
