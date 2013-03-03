@@ -40,9 +40,9 @@ public class WicketApplication extends WebApplication {
             System.setProperty("hibernate.connection.url", dbUrl);
             System.setProperty("hibernate.connection.user", username);
             System.setProperty("hibernate.connection.password", password);
-            LOGGER.info("JDBC URL : {}", System.getProperty("hibernate.connection.url"));
-            LOGGER.info("JDBC User : {}", System.getProperty("hibernate.connection.user"));
-            LOGGER.info("JDBC Password : {}", System.getProperty("hibernate.connection.password"));
+            LOGGER.debug("JDBC URL : {}", System.getProperty("hibernate.connection.url"));
+            LOGGER.debug("JDBC User : {}", System.getProperty("hibernate.connection.user"));
+            LOGGER.debug("JDBC Password : {}", System.getProperty("hibernate.connection.password"));
         } catch (Exception e) {
             LOGGER.error("Unable to extract database url");
         }
