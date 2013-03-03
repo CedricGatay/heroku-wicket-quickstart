@@ -1,8 +1,6 @@
 package nl.topicus.heroku.wicket;
 
-import org.apache.wicket.DefaultPageManagerProvider;
 import org.apache.wicket.cdi.CdiConfiguration;
-import org.apache.wicket.pageStore.IDataStore;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.jboss.weld.environment.servlet.Listener;
 import org.slf4j.Logger;
@@ -47,17 +45,12 @@ public class WicketApplication extends WebApplication {
         } catch (Exception e) {
             LOGGER.error("Unable to extract database url");
         }
-        setPageManagerProvider(new DefaultPageManagerProvider(this) {
-
-            @Override
-            protected IDataStore newDataStore() {
-                return new RedisDataStore(getName());
-            }
-        });
+        setPageManagerProvider(new RedisPageManagerProvider(this));
 
         BeanManager manager = (BeanManager) getServletContext().getAttribute(
                 Listener.BEAN_MANAGER_ATTRIBUTE_NAME);
 
         new CdiConfiguration(manager).configure(this);
     }
+
 }

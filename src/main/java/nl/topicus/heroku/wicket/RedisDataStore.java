@@ -6,8 +6,10 @@ import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Protocol;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 
 /**
  * User: cgatay
@@ -18,13 +20,26 @@ public class RedisDataStore implements IDataStore {
     public static final String STORE_PREFIX = "Wicket_Store";
     public static final String SEPARATOR = ":::";
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisDataStore.class);
-    private final JedisPool jedisPool;
+    private JedisPool jedisPool;
     private final String appName;
 
     public RedisDataStore(final String appName) {
         this.appName = appName;
-        jedisPool = new JedisPool(new JedisPoolConfig(), "127.0.0.1");
-
+        try {
+            URI redisUri = new URI(System.getenv("REDISCLOUD_URL")); //REDISTOGO_URL if you're using RedisToGo
+            jedisPool = new JedisPool(new JedisPoolConfig(),
+                                           redisUri.getHost(),
+                                           redisUri.getPort(),
+                                           Protocol.DEFAULT_TIMEOUT,
+                                           redisUri.getUserInfo().split(":",2)[1]);
+        } catch (Exception e) {
+            LOGGER.error("Unable to connect to Redis, fallbacking to 127.0.0.1 : {}",
+                         e.getMessage());
+            jedisPool = new JedisPool(new JedisPoolConfig(), "127.0.0.1");
+        }
+        if (jedisPool == null){
+            throw new RuntimeException("Unable to connect to any Redis server");
+        }
     }
 
     public byte[] getData(final String sessionId, final int pageId) {
