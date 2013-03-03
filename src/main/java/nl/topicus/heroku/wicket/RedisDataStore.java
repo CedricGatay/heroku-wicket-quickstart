@@ -86,11 +86,11 @@ public class RedisDataStore implements IDataStore {
         final Jedis jedis = jedisPool.getResource();
         try {
             final StringBuilder key = buildKeyForSessionId(sessionId);
-            final Long amountDeleted = jedis.hdel(bytes(key));
+            final Long amountDeleted = jedis.del(bytes(key));
             LOGGER.debug("Successfully deleted data ({} entries) from Redis store for sessionId : {}",
                          amountDeleted, sessionId);
         } catch (Exception e) {
-            LOGGER.error("Unable to store data to redis backend : {}",
+            LOGGER.error("Unable to delete data from redis backend : {}",
                          e.getMessage());
         } finally {
             jedisPool.returnResource(jedis);
