@@ -1,18 +1,13 @@
-package nl.topicus.heroku.wicket;
+package fr.gatay.cedric.wicket;
 
-import nl.topicus.heroku.wicket.service.ApplicationNumberService;
-import nl.topicus.heroku.wicket.service.RequestNumberService;
-import nl.topicus.heroku.wicket.service.SessionNumberService;
-import nl.topicus.heroku.wicket.jpa.entities.Toto;
+import fr.gatay.cedric.wicket.service.ApplicationNumberService;
+import fr.gatay.cedric.wicket.service.RequestNumberService;
+import fr.gatay.cedric.wicket.service.SessionNumberService;
+import fr.gatay.cedric.wicket.jpa.entities.Toto;
 import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.model.Model;
-import org.apache.wicket.ajax.AjaxSelfUpdatingTimerBehavior;
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.util.time.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

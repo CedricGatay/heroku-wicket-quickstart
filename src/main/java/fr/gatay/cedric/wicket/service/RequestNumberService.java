@@ -1,4 +1,4 @@
-package nl.topicus.heroku.wicket.service;
+package fr.gatay.cedric.wicket.service;
 
 import javax.enterprise.context.RequestScoped;
 

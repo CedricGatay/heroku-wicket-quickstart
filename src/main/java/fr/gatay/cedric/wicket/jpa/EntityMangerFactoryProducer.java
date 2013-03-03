@@ -1,4 +1,4 @@
-package nl.topicus.heroku.wicket.jpa;
+package fr.gatay.cedric.wicket.jpa;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;

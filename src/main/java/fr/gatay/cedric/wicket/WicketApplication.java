@@ -1,5 +1,6 @@
-package nl.topicus.heroku.wicket;
+package fr.gatay.cedric.wicket;
 
+import fr.gatay.cedric.wicket.core.RedisPageManagerProvider;
 import org.apache.wicket.cdi.CdiConfiguration;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.jboss.weld.environment.servlet.Listener;

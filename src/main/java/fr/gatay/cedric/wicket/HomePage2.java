@@ -1,4 +1,4 @@
-package nl.topicus.heroku.wicket;
+package fr.gatay.cedric.wicket;
 
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;

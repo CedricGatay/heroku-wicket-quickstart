@@ -1,4 +1,4 @@
-package nl.topicus.heroku.wicket.jpa;
+package fr.gatay.cedric.wicket.jpa;
 
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Disposes;

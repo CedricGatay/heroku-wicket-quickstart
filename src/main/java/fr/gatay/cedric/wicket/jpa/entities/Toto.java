@@ -1,4 +1,4 @@
-package nl.topicus.heroku.wicket.jpa.entities;
+package fr.gatay.cedric.wicket.jpa.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

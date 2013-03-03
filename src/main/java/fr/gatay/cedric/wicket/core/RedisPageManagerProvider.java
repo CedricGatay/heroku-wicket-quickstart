@@ -1,4 +1,4 @@
-package nl.topicus.heroku.wicket;
+package fr.gatay.cedric.wicket.core;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.DefaultPageManagerProvider;
