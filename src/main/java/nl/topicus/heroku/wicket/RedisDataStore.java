@@ -37,9 +37,6 @@ public class RedisDataStore implements IDataStore {
                          e.getMessage());
             jedisPool = new JedisPool(new JedisPoolConfig(), "127.0.0.1");
         }
-        if (jedisPool == null){
-            throw new RuntimeException("Unable to connect to any Redis server");
-        }
     }
 
     public byte[] getData(final String sessionId, final int pageId) {
